@@ -81,7 +81,7 @@ const Faq = () => {
 
         <section className="w-full bg-white py-16 md:py-24 overflow-hidden">
 
-            <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+            <div className="max-w-[1400px] mx-auto px-4 md:px-8">
 
                 {/* TOP */}
 
@@ -122,9 +122,9 @@ const Faq = () => {
 
                 </div>
 
-                {/* FAQ LIST */}
+                {/* FAQ GRID */}
 
-                <div className="mt-16 flex flex-col gap-5">
+                <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-6">
 
                     {faqData.map((item, index) => {
 
@@ -135,7 +135,7 @@ const Faq = () => {
 
                             <div
                                 key={index}
-                                className={`rounded-[28px] border transition-all duration-300 overflow-hidden
+                                className={`rounded-[28px] border transition-all duration-300 overflow-hidden self-start
 
                 ${isOpen
                                         ? "border-[#0F52BA] shadow-xl shadow-blue-50 bg-[#F7FAFF]"
@@ -149,16 +149,18 @@ const Faq = () => {
                                     onClick={() =>
                                         toggleFaq(index)
                                     }
-                                    className="w-full px-7 md:px-10 py-7 flex items-center justify-between gap-5 text-left"
+                                    className="w-full px-5 md:px-8 py-5 md:py-6 flex items-center justify-between gap-4 text-left"
                                 >
 
-                                    <h3 className="text-[20px] md:text-[24px] leading-[1.5] font-bold text-[#0A1B4D]">
+                                    <h3 className="text-[17px] md:text-[21px] leading-[1.6] font-bold text-[#0A1B4D]">
 
                                         {item.question}
 
                                     </h3>
 
-                                    <div className={`w-[46px] h-[46px] rounded-full flex items-center justify-center transition-all duration-300 flex-shrink-0
+                                    {/* ICON */}
+
+                                    <div className={`w-[40px] h-[40px] md:w-[46px] md:h-[46px] rounded-full flex items-center justify-center transition-all duration-300 flex-shrink-0
 
                     ${isOpen
                                             ? "bg-[#0F52BA]"
@@ -169,16 +171,17 @@ const Faq = () => {
                                         {isOpen ? (
 
                                             <Minus
-                                                size={20}
+                                                size={18}
                                                 className="text-white"
                                             />
 
                                         ) : (
 
                                             <Plus
-                                                size={20}
+                                                size={18}
                                                 className="text-[#0F52BA]"
                                             />
+
                                         )}
 
                                     </div>
@@ -197,7 +200,7 @@ const Faq = () => {
 
                                     <div className="overflow-hidden">
 
-                                        <p className="px-7 md:px-10 pb-8 text-[17px] md:text-[18px] leading-[1.9] text-gray-600">
+                                        <p className="px-5 md:px-8 pb-6 md:pb-8 text-[15px] md:text-[17px] leading-[1.9] text-gray-600">
 
                                             {item.answer}
 

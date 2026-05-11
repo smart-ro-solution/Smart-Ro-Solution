@@ -1,6 +1,8 @@
 "use client";
 
-import React from "react";
+import React, {
+    useRef,
+} from "react";
 
 import {
     ChevronLeft,
@@ -44,6 +46,10 @@ const galleryImages = [
 ];
 
 const Gallery = () => {
+
+    const prevRef = useRef(null);
+
+    const nextRef = useRef(null);
 
     return (
 
@@ -90,7 +96,10 @@ const Gallery = () => {
 
                     {/* LEFT BUTTON */}
 
-                    <button className="gallery-prev absolute left-[-10px] md:left-[-30px] top-1/2 -translate-y-1/2 z-20 w-[56px] h-[56px] rounded-full bg-white shadow-2xl border border-gray-100 flex items-center justify-center hover:bg-[#0F52BA] group transition-all duration-300">
+                    <button
+                        ref={prevRef}
+                        className="absolute left-[-10px] md:left-[-30px] top-1/2 -translate-y-1/2 z-50 w-[56px] h-[56px] rounded-full bg-white shadow-2xl border border-gray-100 flex items-center justify-center hover:bg-[#0F52BA] group transition-all duration-300"
+                    >
 
                         <ChevronLeft
                             size={24}
@@ -101,7 +110,10 @@ const Gallery = () => {
 
                     {/* RIGHT BUTTON */}
 
-                    <button className="gallery-next absolute right-[-10px] md:right-[-30px] top-1/2 -translate-y-1/2 z-20 w-[56px] h-[56px] rounded-full bg-white shadow-2xl border border-gray-100 flex items-center justify-center hover:bg-[#0F52BA] group transition-all duration-300">
+                    <button
+                        ref={nextRef}
+                        className="absolute right-[-10px] md:right-[-30px] top-1/2 -translate-y-1/2 z-50 w-[56px] h-[56px] rounded-full bg-white shadow-2xl border border-gray-100 flex items-center justify-center hover:bg-[#0F52BA] group transition-all duration-300"
+                    >
 
                         <ChevronRight
                             size={24}
@@ -112,20 +124,37 @@ const Gallery = () => {
 
                     <Swiper
                         modules={[Navigation, Autoplay]}
+
                         loop={true}
-                        speed={1200}
+
+                        speed={1000}
+
                         spaceBetween={30}
+
                         slidesPerView={1}
+
                         autoplay={{
-                            delay: 0,
+                            delay: 1000,
                             disableOnInteraction: false,
                             pauseOnMouseEnter: true,
                         }}
+
                         navigation={{
-                            prevEl: ".gallery-prev",
-                            nextEl: ".gallery-next",
+                            prevEl: prevRef.current,
+                            nextEl: nextRef.current,
                         }}
+
+                        onBeforeInit={(swiper) => {
+
+                            swiper.params.navigation.prevEl =
+                                prevRef.current;
+
+                            swiper.params.navigation.nextEl =
+                                nextRef.current;
+                        }}
+
                         breakpoints={{
+
                             640: {
                                 slidesPerView: 2,
                             },
@@ -144,7 +173,7 @@ const Gallery = () => {
 
                             <SwiperSlide key={index}>
 
-                                <div className="group relative overflow-hidden rounded-[32px] shadow-xl">
+                                <div className="group relative overflow-hidden rounded-[32px] shadow-xl cursor-pointer">
 
                                     {/* IMAGE */}
 
@@ -158,7 +187,7 @@ const Gallery = () => {
 
                                     <div className="absolute inset-0 bg-gradient-to-t from-[#031B4E]/90 via-[#031B4E]/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
 
-                                    {/* TEXT */}
+                                    {/* CONTENT */}
 
                                     <div className="absolute bottom-0 left-0 right-0 p-8 translate-y-[120%] group-hover:translate-y-0 transition-all duration-500">
 
@@ -170,7 +199,8 @@ const Gallery = () => {
 
                                         <p className="mt-2 text-[16px] text-white/80">
 
-                                            Installation & Repair
+                                            Professional Installation &
+                                            Repair
 
                                         </p>
 
