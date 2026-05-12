@@ -13,7 +13,7 @@ const Contact = () => {
 
     return (
 
-        <section className="w-full bg-[#031B4E] py-16 md:py-24 overflow-hidden">
+        <section className="w-full bg-[#031B4E] py-16 md:py-24 overflow-hidden" id="contact">
 
             <div className="max-w-[1400px] mx-auto px-4 md:px-8">
 

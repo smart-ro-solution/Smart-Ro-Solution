@@ -53,7 +53,7 @@ const Gallery = () => {
 
     return (
 
-        <section className="w-full bg-[#F7FAFF] py-16 md:py-24 overflow-hidden">
+        <section className="w-full bg-[#F7FAFF] py-16 md:py-24 overflow-hidden" id={"gallery"} >
 
             <div className="max-w-[1400px] mx-auto px-4 md:px-8">
 

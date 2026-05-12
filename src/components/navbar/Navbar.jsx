@@ -9,12 +9,13 @@ import {
     Menu,
     X,
 } from "lucide-react";
+import { handleBookNow, handleCall } from "@/utill/contactActions";
 
 const navLinks = [
     "Home",
     "About Us",
     "Services",
-    "Our Process",
+    "Our Work",
     "Service Areas",
     "Contact Us",
 ];
@@ -141,9 +142,14 @@ const Navbar = () => {
 
                     {/* CALL BUTTON */}
 
-                    <div className="hidden md:flex">
+                    <div className="hidden md:flex pointer-coarse">
 
-                        <button className="h-[58px] px-6 rounded-full border-2 border-[#0F52BA] flex items-center gap-4 hover:bg-[#0F52BA] transition-all duration-300 group">
+                        <button onClick={() => {
+                            handleBookNow("Hello, I want to book RO service.")
+
+
+
+                        }} className="cursor-pointer h-[58px] px-6 rounded-full border-2 border-[#0F52BA] flex items-center gap-4 hover:bg-[#0F52BA] transition-all duration-300 group ">
 
                             <div className="w-[42px] h-[42px] rounded-full bg-[#EEF4FF] flex items-center justify-center group-hover:bg-white">
 
@@ -210,7 +216,7 @@ const Navbar = () => {
 
                         ))}
 
-                        <button className="mt-2 h-[52px] rounded-full bg-[#0F52BA] text-white font-semibold">
+                        <button className="mt-2 h-[52px] rounded-full bg-[#0F52BA] text-white font-semibold cursor-pointer " onClick={handleCall} >
 
                             Call Now
 

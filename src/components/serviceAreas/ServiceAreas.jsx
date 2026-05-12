@@ -7,6 +7,7 @@ import { MapPin, Phone } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
 import TechnicianFront from "./images/front-img.png";
+import { handleCall, handleWhatsApp } from "@/utill/contactActions";
 
 const areas = [
     "All Gurugram",
@@ -42,7 +43,7 @@ const areas = [
 
 const ServiceAreas = () => {
     return (
-        <section className="w-full bg-[#F5FAFF] py-16 md:py-24 overflow-hidden ">
+        <section className="w-full bg-[#F5FAFF] py-16 md:py-24 overflow-hidden " id="service-areas">
             <div className="max-w-[1400px] mx-auto px-4 md:px-8">
 
                 {/* ===================== */}
@@ -195,12 +196,15 @@ const ServiceAreas = () => {
 
                             {/* BUTTONS */}
 
-                            <div className="mt-8 flex flex-col sm:flex-row items-center lg:items-start gap-5">
+                            <div className="mt-8 flex flex-col sm:flex-row items-center lg:items-start gap-5 cursor-pointer">
 
                                 {/* CALL BUTTON */}
 
-                                <a
-                                    href="tel:+918307318570"
+                                <button
+                                    onClick={() => {
+                                        handleCall()
+                                    }}
+
                                     className="
                                         h-[60px]
                                         px-8
@@ -215,6 +219,7 @@ const ServiceAreas = () => {
                                         gap-3
                                         shadow-xl
                                         shadow-blue-200
+                                        cursor-pointer
                                     "
                                 >
 
@@ -227,13 +232,15 @@ const ServiceAreas = () => {
                                         Call Now: 8307318570
                                     </span>
 
-                                </a>
+                                </button>
 
                                 {/* WHATSAPP BUTTON */}
 
-                                <a
-                                    href="https://wa.me/918307318570"
-                                    target="_blank"
+                                <button
+
+                                    onClick={
+                                        handleWhatsApp()
+                                    }
                                     className="
                                         h-[60px]
                                         px-8
@@ -249,6 +256,7 @@ const ServiceAreas = () => {
                                         justify-center
                                         gap-3
                                         shadow-lg
+                                          cursor-pointer
                                     "
                                 >
 
@@ -261,7 +269,7 @@ const ServiceAreas = () => {
                                         Chat on WhatsApp
                                     </span>
 
-                                </a>
+                                </button>
 
                             </div>
 
