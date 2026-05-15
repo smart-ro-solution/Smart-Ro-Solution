@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 
 import workingImg from './images/working.png'
+import useScrollToSection from "@/hook/useScrollToSection";
 const features = [
 
     "Trained & Verified Technicians",
@@ -23,6 +24,11 @@ const features = [
 ];
 
 const About = () => {
+
+
+    const scrollToSection =
+        useScrollToSection();
+
 
     return (
 
@@ -110,7 +116,9 @@ const About = () => {
 
                         {/* BUTTON */}
 
-                        <button className="mt-10 h-[58px] px-8 rounded-2xl bg-[#0F52BA] hover:bg-[#083B8A] transition-all duration-300 text-white font-bold text-[17px] shadow-xl shadow-blue-100">
+                        <button className="mt-10 h-[58px] px-8 rounded-2xl bg-[#0F52BA] hover:bg-[#083B8A] transition-all duration-300 text-white font-bold text-[17px] shadow-xl shadow-blue-100 cursor-pointer" onClick={() => {
+                            scrollToSection('gallery')
+                        }}>
 
                             Know More About Us
 

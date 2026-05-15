@@ -13,6 +13,8 @@ import {
 import {
     FaFacebookF,
     FaInstagram,
+    FaWhatsapp,
+    FaYoutube,
 } from "react-icons/fa";
 
 import useScrollToSection from "@/hook/useScrollToSection";
@@ -109,18 +111,33 @@ const Footer = () => {
 
                         {/* SOCIAL ICONS */}
 
+                        {/* SOCIAL ICONS */}
+
                         <div className="mt-8 flex items-center gap-4">
 
                             {/* FACEBOOK */}
 
                             <a
-                                href="#"
-                                className="w-[52px] h-[52px] rounded-full bg-white/10 hover:bg-[#0F52BA] transition-all duration-300 flex items-center justify-center"
+                                href="https://www.facebook.com/share/1E88nZnukC/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="
+            w-[52px]
+            h-[52px]
+            rounded-full
+            bg-white
+            flex
+            items-center
+            justify-center
+            transition-all
+            duration-300
+            hover:scale-110
+        "
                             >
 
                                 <FaFacebookF
-                                    size={18}
-                                    className="text-white"
+                                    size={20}
+                                    className="text-[#1877F2]"
                                 />
 
                             </a>
@@ -128,13 +145,26 @@ const Footer = () => {
                             {/* INSTAGRAM */}
 
                             <a
-                                href="#"
-                                className="w-[52px] h-[52px] rounded-full bg-white/10 hover:bg-[#E1306C] transition-all duration-300 flex items-center justify-center"
+                                href="https://www.instagram.com/reel/DUcvF5Kks7x/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="
+            w-[52px]
+            h-[52px]
+            rounded-full
+            bg-white
+            flex
+            items-center
+            justify-center
+            transition-all
+            duration-300
+            hover:scale-110
+        "
                             >
 
                                 <FaInstagram
-                                    size={18}
-                                    className="text-white"
+                                    size={20}
+                                    className="text-[#E1306C]"
                                 />
 
                             </a>
@@ -145,12 +175,50 @@ const Footer = () => {
                                 href="https://wa.me/918307318570"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-[52px] h-[52px] rounded-full bg-white/10 hover:bg-[#25D366] transition-all duration-300 flex items-center justify-center"
+                                className="
+            w-[52px]
+            h-[52px]
+            rounded-full
+            bg-white
+            flex
+            items-center
+            justify-center
+            transition-all
+            duration-300
+            hover:scale-110
+        "
                             >
 
-                                <MessageCircle
+                                <FaWhatsapp
                                     size={20}
-                                    className="text-white"
+                                    className="text-[#25D366]"
+                                />
+
+                            </a>
+
+                            {/* YOUTUBE */}
+
+                            <a
+                                href="https://youtube.com/@joniverma6867?si=RbQk01RC-EaafTCr"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="
+            w-[52px]
+            h-[52px]
+            rounded-full
+            bg-white
+            flex
+            items-center
+            justify-center
+            transition-all
+            duration-300
+            hover:scale-110
+        "
+                            >
+
+                                <FaYoutube
+                                    size={22}
+                                    className="text-[#FF0000]"
                                 />
 
                             </a>

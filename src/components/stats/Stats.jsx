@@ -8,6 +8,7 @@ import {
     Wrench,
     ShieldCheck,
 } from "lucide-react";
+import useScrollToSection from "@/hook/useScrollToSection";
 
 const statsData = [
 
@@ -37,7 +38,8 @@ const statsData = [
 ];
 
 const Stats = () => {
-
+    const scrollToSection =
+        useScrollToSection();
     return (
 
         <section className="w-full bg-[#031B4E] py-16 md:py-24 overflow-hidden">
@@ -87,7 +89,9 @@ const Stats = () => {
 
                         {/* BUTTON */}
 
-                        <button className="mt-9 h-[58px] px-8 rounded-2xl bg-[#0F52BA] hover:bg-[#2563EB] transition-all duration-300 text-white font-bold text-[17px] shadow-xl shadow-blue-900">
+                        <button className="mt-9 h-[58px] px-8 rounded-2xl bg-[#0F52BA] hover:bg-[#2563EB] transition-all duration-300 text-white font-bold text-[17px] shadow-xl shadow-blue-900 cursor-pointer" onClick={() => {
+                            scrollToSection('gallery')
+                        }}>
 
                             Know More About Us
 

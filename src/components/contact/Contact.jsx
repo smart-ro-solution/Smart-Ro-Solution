@@ -467,7 +467,7 @@ const Contact = () => {
 
                                     }}
 
-                                    className="cursor-pointer flex-1 h-[60px] rounded-2xl bg-[#0F52BA] hover:bg-[#083B8A] transition-all duration-300 text-white font-bold text-[17px] disabled:opacity-70 disabled:cursor-not-allowed"
+                                    className="cursor-pointer flex-1 min-h-[60px] rounded-2xl bg-[#0F52BA] hover:bg-[#083B8A] transition-all duration-300 text-white font-bold text-[17px] disabled:opacity-70 disabled:cursor-not-allowed"
                                 >
 
                                     {
@@ -505,7 +505,7 @@ const Contact = () => {
 
                                             disabled={whatsappLoading}
 
-                                            className="cursor-pointer flex-1 h-[60px] rounded-2xl bg-[#25D366] hover:bg-[#1EBE5D] transition-all duration-300 text-white font-bold text-[17px] flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed"
+                                            className="cursor-pointer flex-1 min-h-[60px] rounded-2xl bg-[#25D366] hover:bg-[#1EBE5D] transition-all duration-300 text-white font-bold text-[17px] flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed"
                                         >
 
                                             <MessageCircle size={22} />

@@ -8,6 +8,8 @@ import {
     Clock3,
     Menu,
     X,
+    Instagram,
+    Facebook,
 } from "lucide-react";
 
 import {
@@ -16,7 +18,12 @@ import {
 } from "@/utill/contactActions";
 
 import useScrollToSection from "@/hook/useScrollToSection";
-
+import {
+    FaInstagram,
+    FaFacebookF,
+    FaWhatsapp,
+    FaYoutube,
+} from "react-icons/fa";
 const navLinks = [
     {
         label: "Home",
@@ -86,10 +93,12 @@ const Navbar = () => {
                         <Clock3 size={15} />
 
                         <span>
-                            Mon - Sun: 8:00 AM - 8:00 PM
+                            Mon - Sun: 9:00 AM - 9:00 PM
                         </span>
 
                     </div>
+
+                    {/* RIGHT */}
 
                     {/* RIGHT */}
 
@@ -99,11 +108,113 @@ const Navbar = () => {
                             Follow Us:
                         </span>
 
-                        <div className="w-5 h-5 rounded-full bg-white/20" />
+                        {/* INSTAGRAM */}
 
-                        <div className="w-5 h-5 rounded-full bg-white/20" />
+                        <a
+                            href="https://www.instagram.com/reel/DUcvF5Kks7x/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="
+            w-8
+            h-8
+            rounded-full
+            bg-white
+            flex
+            items-center
+            justify-center
+            transition-all
+            duration-300
+            hover:scale-110
+        "
+                        >
 
-                        <div className="w-5 h-5 rounded-full bg-white/20" />
+                            <FaInstagram
+                                size={16}
+                                className="text-[#E1306C]"
+                            />
+
+                        </a>
+
+                        {/* FACEBOOK */}
+
+                        <a
+                            href="https://www.facebook.com/share/1E88nZnukC/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="
+            w-8
+            h-8
+            rounded-full
+            bg-white
+            flex
+            items-center
+            justify-center
+            transition-all
+            duration-300
+            hover:scale-110
+        "
+                        >
+
+                            <FaFacebookF
+                                size={15}
+                                className="text-[#1877F2]"
+                            />
+
+                        </a>
+
+                        {/* WHATSAPP */}
+
+                        <a
+                            href="https://wa.me/918307318570"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="
+            w-8
+            h-8
+            rounded-full
+            bg-white
+            flex
+            items-center
+            justify-center
+            transition-all
+            duration-300
+            hover:scale-110
+        "
+                        >
+
+                            <FaWhatsapp
+                                size={16}
+                                className="text-[#25D366]"
+                            />
+
+                        </a>
+
+                        {/* YOUTUBE */}
+
+                        <a
+                            href="https://youtube.com/@joniverma6867?si=RbQk01RC-EaafTCr"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="
+            w-8
+            h-8
+            rounded-full
+            bg-white
+            flex
+            items-center
+            justify-center
+            transition-all
+            duration-300
+            hover:scale-110
+        "
+                        >
+
+                            <FaYoutube
+                                size={16}
+                                className="text-[#FF0000]"
+                            />
+
+                        </a>
 
                     </div>
 
