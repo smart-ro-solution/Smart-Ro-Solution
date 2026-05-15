@@ -24,26 +24,25 @@ import "swiper/css/navigation";
 
 const galleryImages = [
 
-    "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=1200&auto=format&fit=crop",
+    "/images/gallery/work1.jpeg",
+    "/images/gallery/work2.jpeg",
+    "/images/gallery/work3.jpeg",
+    "/images/gallery/work4.jpeg",
+    "/images/gallery/work5.jpeg",
+    "/images/gallery/work6.jpeg",
+    "/images/gallery/work7.jpeg",
 
-    "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1200&auto=format&fit=crop",
-
-    "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=1200&auto=format&fit=crop",
-
-    "https://images.unsplash.com/photo-1600566752227-8f3b2f9f6d19?q=80&w=1200&auto=format&fit=crop",
-
-    "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=1200&auto=format&fit=crop",
-
-    "https://images.unsplash.com/photo-1626806788144-f17f3e3df5c6?q=80&w=1200&auto=format&fit=crop",
-
-    "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1200&auto=format&fit=crop",
-
-    "https://images.unsplash.com/photo-1622372738946-62e02505feb3?q=80&w=1200&auto=format&fit=crop",
-
-    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop",
-
-    "https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?q=80&w=1200&auto=format&fit=crop",
-];
+    // "/images/gallery/work8.jpeg",
+    // "/images/gallery/work9.jpeg",
+    // "/images/gallery/work10.jpeg",
+    // "/images/gallery/work11.jpeg",
+    // "/images/gallery/work12.jpeg",
+    // "/images/gallery/work13.jpeg",
+    // "/images/gallery/work14.jpeg",
+    // "/images/gallery/work15.jpeg",
+    // "/images/gallery/work16.jpeg",
+    // "/images/gallery/work17.jpeg",
+];;
 
 const Gallery = () => {
 

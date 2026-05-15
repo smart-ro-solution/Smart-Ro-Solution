@@ -35,7 +35,7 @@ const features = [
 
 const Hero = () => {
     return (
-        <section className="relative w-full overflow-hidden bg-gradient-to-r from-[#F8FBFF] to-[#EAF4FF]  py-7">
+        <section className="relative w-full overflow-hidden bg-gradient-to-r from-[#F8FBFF] to-[#EAF4FF]  py-7" id={'home'}>
 
             {/* BACKGROUND GLOW */}
             <div className="absolute top-[-120px] right-[-120px] w-[700px] h-[700px] rounded-full bg-[#0F52BA]/10 blur-3xl" />

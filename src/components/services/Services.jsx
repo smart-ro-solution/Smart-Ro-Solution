@@ -2,66 +2,90 @@
 
 import React from "react";
 
+import Image from "next/image";
+
 import { handleBookNow } from "@/utill/contactActions";
+
+import Leckage from "./images/Leckage.png";
+import RoRepair from "./images/Ro-Repair.png";
+import RoServices from "./images/Ro-Services.png";
+
+import Install from "./images/Ro-Install.png";
+import Amc from "./images/Amc-Mantance.png";
+import Filter from "./images/Filter-Resplacement.png";
 
 const services = [
 
     {
-        image: "/images/services/repair.jpg",
+        image: RoRepair,
         title: "RO Repair",
         description:
             "All types of RO repair services for all major brands.",
     },
 
     {
-        image: "/images/services/service.jpg",
+        image: RoServices,
         title: "RO Service",
         description:
             "Complete RO servicing to keep your water 100% pure.",
     },
 
     {
-        image: "/images/services/install.jpg",
+        image: Install,
         title: "RO Installation",
         description:
             "Professional installation of new RO systems.",
     },
 
     {
-        image: "/images/services/amc.jpg",
+        image: Amc,
         title: "AMC Maintenance",
         description:
             "Regular maintenance ensures long life of your RO.",
     },
 
     {
-        image: "/images/services/filter.jpg",
+        image: Filter,
         title: "Filter Replacement",
         description:
             "Filter, membrane and candle replacement service.",
     },
 
     {
-        image: "/images/services/leakage.jpg",
+        image: Leckage,
         title: "Leakage Repair",
         description:
             "Quick RO water leakage and pipe fixing solutions.",
     },
+
 ];
 
 const Services = () => {
 
     return (
 
-        <section className="w-full bg-white py-20 md:py-28 overflow-hidden" id="services">
+        <section
+            id="services"
+            className="
+                w-full
+                bg-white
+                py-20
+                md:py-28
+                overflow-hidden
+            "
+        >
 
             <div className="max-w-[1400px] mx-auto px-4 md:px-8">
 
-                {/* TAG */}
+                {/* ===================== */}
+                {/* TOP CONTENT */}
+                {/* ===================== */}
 
-                <div className="flex justify-center">
+                <div className="text-center">
 
-                    <div className="h-[38px] px-5 rounded-full bg-[#EAF2FF] flex items-center justify-center">
+                    {/* TAG */}
+
+                    <div className="inline-flex h-[38px] px-5 rounded-full bg-[#EAF2FF] items-center justify-center">
 
                         <p className="text-[#0F52BA] text-[13px] font-bold uppercase tracking-[1px]">
 
@@ -71,31 +95,62 @@ const Services = () => {
 
                     </div>
 
+                    {/* TITLE */}
+
+                    <h2
+                        className="
+                            mt-4
+                            text-[36px]
+                            md:text-[56px]
+                            font-extrabold
+                            text-[#0A1B4D]
+                            leading-[1.15]
+                        "
+                    >
+
+                        Complete RO Solutions
+
+                    </h2>
+
+                    {/* DESCRIPTION */}
+
+                    <p
+                        className="
+                            mt-6
+                            text-[17px]
+                            md:text-[20px]
+                            text-gray-500
+                            max-w-[900px]
+                            mx-auto
+                            leading-[1.9]
+                        "
+                    >
+
+                        Professional RO repair,
+                        installation, AMC maintenance,
+                        filter replacement and water
+                        purifier services for homes,
+                        offices and commercial spaces
+                        across Gurugram.
+
+                    </p>
+
                 </div>
 
-                {/* TITLE */}
-
-                <h2 className="mt-6 text-center text-[36px] md:text-[56px] font-extrabold text-[#0A1B4D] leading-[1.15]">
-
-                    Complete RO Solutions
-
-                </h2>
-
-                {/* DESCRIPTION */}
-
-                <p className="mt-6 text-center text-[17px] md:text-[20px] text-gray-500 max-w-[900px] mx-auto leading-[1.9]">
-
-                    Professional RO repair, installation,
-                    AMC maintenance, filter replacement
-                    and water purifier services for homes,
-                    offices and commercial spaces across
-                    Gurugram.
-
-                </p>
-
+                {/* ===================== */}
                 {/* SERVICES GRID */}
+                {/* ===================== */}
 
-                <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div
+                    className="
+                        mt-16
+                        grid
+                        grid-cols-1
+                        sm:grid-cols-2
+                        lg:grid-cols-3
+                        gap-8
+                    "
+                >
 
                     {services.map((item, index) => (
 
@@ -116,17 +171,30 @@ const Services = () => {
                             "
                         >
 
+                            {/* ===================== */}
                             {/* IMAGE */}
+                            {/* ===================== */}
 
-                            <div className="relative overflow-hidden h-[220px] md:h-[240px]">
+                            <div
+                                className="
+                                    relative
+                                    overflow-hidden
+                                    h-[300px]
+                                    md:h-[290px]
+                                    rounded-t-[30px]
+                                "
+                            >
 
-                                <img
+                                <Image
                                     src={item.image}
                                     alt={item.title}
+                                    fill
+                                    priority
                                     className="
                                         w-full
                                         h-full
                                         object-cover
+                                        object-center
                                         group-hover:scale-110
                                         transition-all
                                         duration-700
@@ -139,13 +207,22 @@ const Services = () => {
 
                             </div>
 
+                            {/* ===================== */}
                             {/* CONTENT */}
+                            {/* ===================== */}
 
-                            <div className="p-7">
+                            <div className="p-5">
 
                                 {/* TITLE */}
 
-                                <h3 className="text-[22px] md:text-[26px] font-bold text-[#0A1B4D]">
+                                <h3
+                                    className="
+                                        text-[22px]
+                                        md:text-[26px]
+                                        font-bold
+                                        text-[#0A1B4D]
+                                    "
+                                >
 
                                     {item.title}
 
@@ -153,7 +230,15 @@ const Services = () => {
 
                                 {/* DESCRIPTION */}
 
-                                <p className="mt-4 text-[16px] leading-[1.8] text-gray-500 md:min-h-[85px]">
+                                <p
+                                    className="
+                                        mt-4
+                                        text-[16px]
+                                        leading-[1.8]
+                                        text-gray-500
+                                        md:min-h-[85px]
+                                    "
+                                >
 
                                     {item.description}
 
@@ -163,10 +248,14 @@ const Services = () => {
 
                                 <button
                                     onClick={() => {
-                                        handleBookNow();
+
+                                        handleBookNow(
+                                            `Hello, I want ${item.title} service.`
+                                        );
+
                                     }}
                                     className="
-                                        mt-6
+                                        mt-3
                                         h-[54px]
                                         w-full
                                         rounded-2xl

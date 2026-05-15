@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 import {
     Phone,
@@ -8,8 +8,36 @@ import {
     MapPin,
     MessageCircle,
 } from "lucide-react";
+import { handleEmailSubmit, handleWhatsAppSubmit } from "@/utill/contactActions";
 
 const Contact = () => {
+    const [formData, setFormData] = useState({
+        name: "",
+        phone: "",
+        service: "",
+        message: "",
+        alternatePhone: "",
+    });
+    const isMobile = () => {
+
+        return /Android|iPhone|iPad|iPod/i.test(
+            navigator.userAgent
+        );
+
+    };
+    const [emailLoading, setEmailLoading] =
+        useState(false);
+
+    const [whatsappLoading, setWhatsappLoading] =
+        useState(false);
+    const handleChange = (e) => {
+
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+
+    };
 
     return (
 
@@ -186,55 +214,215 @@ const Contact = () => {
 
                             {/* NAME */}
 
-                            <input
-                                type="text"
-                                placeholder="Your Name"
-                                className="h-[62px] rounded-2xl border border-[#DCE6F7] px-5 text-[17px] text-[#0A1B4D] placeholder:text-gray-400 outline-none focus:border-[#0F52BA]"
-                            />
+                            <div>
+
+                                <label className="block mb-3 text-[16px] font-semibold text-[#0A1B4D]">
+
+                                    Full Name
+                                    <span className="text-red-500">
+
+                                        {" "}*
+
+                                    </span>
+
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    placeholder="Enter your full name"
+                                    className="
+                h-[62px]
+                w-full
+                rounded-2xl
+                border
+                border-[#DCE6F7]
+                px-5
+                text-[17px]
+                text-[#0A1B4D]
+                placeholder:text-gray-400
+                outline-none
+                focus:border-[#0F52BA]
+            "
+                                />
+
+                            </div>
 
                             {/* PHONE */}
 
-                            <input
-                                type="text"
-                                placeholder="Phone Number"
-                                className="h-[62px] rounded-2xl border border-[#DCE6F7] px-5 text-[17px] text-[#0A1B4D] placeholder:text-gray-400 outline-none focus:border-[#0F52BA]"
-                            />
+                            <div>
+
+                                <label className="block mb-3 text-[16px] font-semibold text-[#0A1B4D]">
+
+                                    Phone Number
+                                    <span className="text-red-500">
+
+                                        {" "}*
+
+                                    </span>
+
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="phone"
+                                    value={formData.phone}
+                                    onChange={handleChange}
+                                    placeholder="Enter your phone number"
+                                    className="
+                h-[62px]
+                w-full
+                rounded-2xl
+                border
+                border-[#DCE6F7]
+                px-5
+                text-[17px]
+                text-[#0A1B4D]
+                placeholder:text-gray-400
+                outline-none
+                focus:border-[#0F52BA]
+            "
+                                />
+
+                            </div>
+
+                            {/* ALTERNATE PHONE */}
+
+                            <div>
+
+                                <label className="block mb-3 text-[16px] font-semibold text-[#0A1B4D]">
+
+                                    Alternate Number
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="alternatePhone"
+                                    value={formData.alternatePhone}
+                                    onChange={handleChange}
+                                    placeholder="Optional alternate number"
+                                    className="
+                h-[62px]
+                w-full
+                rounded-2xl
+                border
+                border-[#DCE6F7]
+                px-5
+                text-[17px]
+                text-[#0A1B4D]
+                placeholder:text-gray-400
+                outline-none
+                focus:border-[#0F52BA]
+            "
+                                />
+
+                            </div>
 
                             {/* SERVICE */}
 
-                            <select
-                                className="h-[62px] rounded-2xl border border-[#DCE6F7] px-5 text-[17px] text-[#0A1B4D] outline-none focus:border-[#0F52BA]"
-                            >
+                            <div>
 
-                                <option>
+                                <label className="block mb-3 text-[16px] font-semibold text-[#0A1B4D]">
+
                                     Select Service
-                                </option>
+                                    <span className="text-red-500">
 
-                                <option>
-                                    RO Repair
-                                </option>
+                                        {" "}*
 
-                                <option>
-                                    RO Installation
-                                </option>
+                                    </span>
 
-                                <option>
-                                    AMC Service
-                                </option>
+                                </label>
 
-                                <option>
-                                    RO Maintenance
-                                </option>
+                                <select
+                                    name="service"
+                                    value={formData.service}
+                                    onChange={handleChange}
+                                    className="
+                h-[62px]
+                w-full
+                rounded-2xl
+                border
+                border-[#DCE6F7]
+                px-5
+                text-[17px]
+                text-[#0A1B4D]
+                outline-none
+                focus:border-[#0F52BA]
+            "
+                                >
 
-                            </select>
+                                    <option value="">
+                                        Choose a service
+                                    </option>
+
+                                    <option value="RO Repair">
+                                        RO Repair
+                                    </option>
+
+                                    <option value="RO Service">
+                                        RO Service
+                                    </option>
+
+                                    <option value="RO Installation">
+                                        RO Installation
+                                    </option>
+
+                                    <option value="AMC Maintenance">
+                                        AMC Maintenance
+                                    </option>
+
+                                    <option value="Filter Replacement">
+                                        Filter Replacement
+                                    </option>
+
+                                    <option value="Leakage Repair">
+                                        Leakage Repair
+                                    </option>
+
+                                    <option value="Water Purifier Service">
+                                        Water Purifier Service
+                                    </option>
+
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
 
                             {/* MESSAGE */}
 
-                            <textarea
-                                rows="5"
-                                placeholder="Write Your Message"
-                                className="rounded-2xl border border-[#DCE6F7] p-5 text-[17px] text-[#0A1B4D] placeholder:text-gray-400 outline-none focus:border-[#0F52BA]"
-                            />
+                            <div>
+
+                                <label className="block mb-3 text-[16px] font-semibold text-[#0A1B4D]">
+
+                                    Message
+                                </label>
+
+                                <textarea
+                                    rows="5"
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    placeholder="Write your service requirement..."
+                                    className="
+                w-full
+                rounded-2xl
+                border
+                border-[#DCE6F7]
+                p-5
+                text-[17px]
+                text-[#0A1B4D]
+                placeholder:text-gray-400
+                outline-none
+                focus:border-[#0F52BA]
+            "
+                                />
+
+                            </div>
 
                             {/* BUTTONS */}
 
@@ -243,26 +431,95 @@ const Contact = () => {
                                 {/* SUBMIT */}
 
                                 <button
+
                                     type="submit"
-                                    className="flex-1 h-[60px] rounded-2xl bg-[#0F52BA] hover:bg-[#083B8A] transition-all duration-300 text-white font-bold text-[17px]"
+
+                                    disabled={emailLoading}
+
+                                    onClick={(e) => {
+
+                                        e.preventDefault();
+
+
+                                        setEmailLoading(true);
+
+                                        setTimeout(() => {
+
+                                            // MOBILE -> WHATSAPP
+
+                                            if (isMobile()) {
+
+                                                handleWhatsAppSubmit(formData);
+
+                                            }
+
+                                            // DESKTOP -> GMAIL
+
+                                            else {
+
+                                                handleEmailSubmit(formData);
+
+                                            }
+
+                                            setEmailLoading(false);
+
+                                        }, 1800);
+
+                                    }}
+
+                                    className="cursor-pointer flex-1 h-[60px] rounded-2xl bg-[#0F52BA] hover:bg-[#083B8A] transition-all duration-300 text-white font-bold text-[17px] disabled:opacity-70 disabled:cursor-not-allowed"
                                 >
 
-                                    Book Now
+                                    {
+                                        emailLoading
+                                            ? "Submitting..."
+                                            : "Book Now"
+                                    }
 
                                 </button>
 
                                 {/* WHATSAPP */}
 
-                                <button
-                                    type="button"
-                                    className="flex-1 h-[60px] rounded-2xl bg-[#25D366] hover:bg-[#1EBE5D] transition-all duration-300 text-white font-bold text-[17px] flex items-center justify-center gap-3"
-                                >
+                                {
+                                    !isMobile() && (
 
-                                    <MessageCircle size={22} />
+                                        <button
 
-                                    WhatsApp
+                                            onClick={(e) => {
 
-                                </button>
+                                                e.preventDefault();
+
+                                                setWhatsappLoading(true);
+
+                                                setTimeout(() => {
+
+                                                    handleWhatsAppSubmit(formData);
+
+                                                    setWhatsappLoading(false);
+
+                                                }, 1500);
+
+                                            }}
+
+                                            type="button"
+
+                                            disabled={whatsappLoading}
+
+                                            className="cursor-pointer flex-1 h-[60px] rounded-2xl bg-[#25D366] hover:bg-[#1EBE5D] transition-all duration-300 text-white font-bold text-[17px] flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed"
+                                        >
+
+                                            <MessageCircle size={22} />
+
+                                            {
+                                                whatsappLoading
+                                                    ? "Opening..."
+                                                    : "WhatsApp"
+                                            }
+
+                                        </button>
+
+                                    )
+                                }
 
                             </div>
 

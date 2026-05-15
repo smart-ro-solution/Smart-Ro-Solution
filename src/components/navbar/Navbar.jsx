@@ -9,15 +9,39 @@ import {
     Menu,
     X,
 } from "lucide-react";
-import { handleBookNow, handleCall } from "@/utill/contactActions";
+
+import {
+    handleBookNow,
+    handleCall,
+} from "@/utill/contactActions";
+
+import useScrollToSection from "@/hook/useScrollToSection";
 
 const navLinks = [
-    "Home",
-    "About Us",
-    "Services",
-    "Our Work",
-    "Service Areas",
-    "Contact Us",
+    {
+        label: "Home",
+        id: "home",
+    },
+    {
+        label: "About Us",
+        id: "about",
+    },
+    {
+        label: "Services",
+        id: "services",
+    },
+    {
+        label: "Our Work",
+        id: "gallery",
+    },
+    {
+        label: "Service Areas",
+        id: "service-areas",
+    },
+    {
+        label: "Contact Us",
+        id: "contact",
+    },
 ];
 
 const Navbar = () => {
@@ -25,22 +49,31 @@ const Navbar = () => {
     const [mobileMenu, setMobileMenu] =
         useState(false);
 
+    const scrollToSection =
+        useScrollToSection();
+
     return (
+
         <header className="w-full">
 
+            {/* ========================= */}
             {/* TOP HEADER */}
+            {/* ========================= */}
 
             <div className="w-full bg-[#021B4E] text-white">
 
-                <div className="max-w-[1400px] mx-auto px-4 md:px-8 h-[42px] flex items-center justify-between">
+                <div className="max-w-[1400px] mx-auto px-3 sm:px-4 md:px-8 h-[42px] flex items-center justify-between">
 
                     {/* LEFT */}
 
-                    <div className="flex items-center gap-2 text-[13px] font-medium">
+                    <div className="flex items-center gap-2 text-[11px] sm:text-[13px] font-medium truncate">
 
-                        <MapPin size={15} />
+                        <MapPin
+                            size={14}
+                            className="flex-shrink-0"
+                        />
 
-                        <span>
+                        <span className="truncate">
                             Serving All Over Gurugram
                         </span>
 
@@ -60,7 +93,7 @@ const Navbar = () => {
 
                     {/* RIGHT */}
 
-                    <div className="hidden md:flex items-center gap-3">
+                    <div className="hidden lg:flex items-center gap-3">
 
                         <span className="text-[13px]">
                             Follow Us:
@@ -78,61 +111,73 @@ const Navbar = () => {
 
             </div>
 
+            {/* ========================= */}
             {/* MAIN NAVBAR */}
+            {/* ========================= */}
 
             <div className="w-full bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
 
-                <div className="max-w-[1400px] mx-auto px-4 md:px-8 h-[90px] flex items-center justify-between">
+                <div className="max-w-[1400px] mx-auto px-3 sm:px-4 md:px-8 h-[76px] md:h-[90px] flex items-center justify-between gap-3">
 
+                    {/* ========================= */}
                     {/* LOGO */}
+                    {/* ========================= */}
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 md:gap-3 flex-shrink-0 min-w-0">
 
-                        <div className="w-[52px] h-[52px] rounded-full bg-[#0F52BA] flex items-center justify-center">
+                        {/* ICON */}
+
+                        <div className="w-[42px] h-[42px] md:w-[52px] md:h-[52px] rounded-full bg-[#0F52BA] flex items-center justify-center flex-shrink-0">
 
                             <img
                                 src="https://cdn-icons-png.flaticon.com/512/728/728093.png"
                                 alt="logo"
-                                className="w-[28px] h-[28px] object-contain"
+                                className="w-[22px] h-[22px] md:w-[28px] md:h-[28px] object-contain"
                             />
 
                         </div>
 
-                        <div>
+                        {/* TEXT */}
 
-                            <h2 className="text-[28px] leading-none font-extrabold text-[#0A1B4D]">
+                        <div className="min-w-0">
 
-                                SMART RO
+                            <h2 className="text-[18px] sm:text-[22px] md:text-[28px] leading-[1.1] font-extrabold text-[#0A1B4D] whitespace-nowrap">
+
+                                SMART ARO
+                                <span className="text-[#0F52BA]">
+
+                                    {" "}SOLUTION
+
+                                </span>
 
                             </h2>
-
-                            <p className="text-[16px] font-semibold text-[#0F52BA]">
-
-                                SOLUTION
-
-                            </p>
 
                         </div>
 
                     </div>
 
+                    {/* ========================= */}
                     {/* DESKTOP MENU */}
+                    {/* ========================= */}
 
-                    <nav className="hidden lg:flex items-center gap-10">
+                    <nav className="hidden xl:flex items-center gap-6 2xl:gap-10">
 
                         {navLinks.map((item, index) => (
 
                             <button
                                 key={index}
-                                className={`text-[15px] font-semibold transition-all duration-300 hover:text-[#0F52BA]
+                                onClick={() =>
+                                    scrollToSection(item.id)
+                                }
+                                className={`text-[14px] 2xl:text-[15px] font-semibold transition-all duration-300 hover:text-[#0F52BA]
 
-                ${index === 0
+                                ${index === 0
                                         ? "text-[#0F52BA]"
                                         : "text-[#111827]"
                                     }`}
                             >
 
-                                {item}
+                                {item.label}
 
                             </button>
 
@@ -140,16 +185,24 @@ const Navbar = () => {
 
                     </nav>
 
+                    {/* ========================= */}
                     {/* CALL BUTTON */}
+                    {/* ========================= */}
 
-                    <div className="hidden md:flex pointer-coarse">
+                    <div className="hidden 2xl:flex">
 
-                        <button onClick={() => {
-                            handleBookNow("Hello, I want to book RO service.")
+                        <button
+                            onClick={() => {
 
+                                handleBookNow(
+                                    "Hello, I want to book RO service."
+                                );
 
+                            }}
+                            className="cursor-pointer h-[58px] px-6 rounded-full border-2 border-[#0F52BA] flex items-center gap-4 hover:bg-[#0F52BA] transition-all duration-300 group"
+                        >
 
-                        }} className="cursor-pointer h-[58px] px-6 rounded-full border-2 border-[#0F52BA] flex items-center gap-4 hover:bg-[#0F52BA] transition-all duration-300 group ">
+                            {/* ICON */}
 
                             <div className="w-[42px] h-[42px] rounded-full bg-[#EEF4FF] flex items-center justify-center group-hover:bg-white">
 
@@ -160,15 +213,17 @@ const Navbar = () => {
 
                             </div>
 
+                            {/* TEXT */}
+
                             <div className="text-left">
 
-                                <h3 className="text-[20px] leading-none font-bold text-[#0A1B4D] group-hover:text-white">
+                                <h3 className="text-[18px] leading-none font-bold text-[#0A1B4D] group-hover:text-white">
 
                                     8307318570
 
                                 </h3>
 
-                                <p className="text-[14px] font-medium text-gray-500 group-hover:text-white">
+                                <p className="text-[13px] font-medium text-gray-500 group-hover:text-white">
 
                                     Call / WhatsApp
 
@@ -180,43 +235,97 @@ const Navbar = () => {
 
                     </div>
 
-                    {/* MOBILE MENU */}
+                    {/* ========================= */}
+                    {/* MOBILE MENU BUTTON */}
+                    {/* ========================= */}
 
                     <button
                         onClick={() =>
                             setMobileMenu(!mobileMenu)
                         }
-                        className="lg:hidden"
+                        className="xl:hidden flex-shrink-0"
                     >
 
                         {mobileMenu
-                            ? <X size={30} />
-                            : <Menu size={30} />}
+                            ? <X size={28} />
+                            : <Menu size={28} />}
 
                     </button>
 
                 </div>
 
+                {/* ========================= */}
                 {/* MOBILE DROPDOWN */}
+                {/* ========================= */}
 
-                {mobileMenu && (
+                <div
+                    className={`
+        xl:hidden
+        overflow-hidden
+        transition-all
+        duration-500
+        ease-in-out
+        bg-white
+        border-t
+        border-gray-200
+        shadow-lg
 
-                    <div className="lg:hidden w-full bg-white border-t border-gray-200 px-6 py-5 flex flex-col gap-5">
+        ${mobileMenu
+                            ? "max-h-[500px] opacity-100"
+                            : "max-h-0 opacity-0"
+                        }
+    `}
+                >
+
+                    <div className="px-5 py-5 flex flex-col gap-5">
+
+                        {/* LINKS */}
 
                         {navLinks.map((item, index) => (
 
                             <button
                                 key={index}
-                                className="text-left text-[16px] font-semibold text-[#111827]"
+                                onClick={() => {
+
+                                    scrollToSection(item.id);
+
+                                    setMobileMenu(false);
+
+                                }}
+                                className="
+                    text-left
+                    text-[16px]
+                    font-semibold
+                    text-[#111827]
+                    hover:text-[#0F52BA]
+                    transition-all
+                    duration-300
+                "
                             >
 
-                                {item}
+                                {item.label}
 
                             </button>
 
                         ))}
 
-                        <button className="mt-2 h-[52px] rounded-full bg-[#0F52BA] text-white font-semibold cursor-pointer " onClick={handleCall} >
+                        {/* CALL BUTTON */}
+
+                        <button
+                            className="
+                mt-2
+                h-[54px]
+                rounded-full
+                bg-[#0F52BA]
+                hover:bg-[#083B8A]
+                transition-all
+                duration-300
+                text-white
+                font-semibold
+                cursor-pointer
+            "
+                            onClick={handleCall}
+                        >
 
                             Call Now
 
@@ -224,11 +333,12 @@ const Navbar = () => {
 
                     </div>
 
-                )}
+                </div>
 
             </div>
 
         </header>
+
     );
 };
 

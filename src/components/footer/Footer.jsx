@@ -15,25 +15,65 @@ import {
     FaInstagram,
 } from "react-icons/fa";
 
+import useScrollToSection from "@/hook/useScrollToSection";
+
 const Footer = () => {
+
+    // =========================
+    // CUSTOM SCROLL HOOK
+    // =========================
+
+    const scrollToSection =
+        useScrollToSection();
+
+    // =========================
+    // SCROLL TO TOP
+    // =========================
 
     const scrollToTop = () => {
 
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
+        scrollToSection('home')
+
     };
+
+    // =========================
+    // QUICK LINKS
+    // =========================
+
+    const quickLinks = [
+        {
+            label: "Home",
+            id: "home",
+        },
+        {
+            label: "About Us",
+            id: "about",
+        },
+        {
+            label: "Services",
+            id: "services",
+        },
+        {
+            label: "Testimonials",
+            id: "testimonials",
+        },
+        {
+            label: "Gallery",
+            id: "gallery",
+        },
+        {
+            label: "FAQ",
+            id: "faq",
+        },
+        {
+            label: "Contact",
+            id: "contact",
+        },
+    ];
 
     return (
 
         <footer className="w-full bg-[#02153D] overflow-hidden">
-
-            {/* ========================= */}
-            {/* TOP CTA */}
-            {/* ========================= */}
-
-
 
             {/* ========================= */}
             {/* MAIN FOOTER */}
@@ -131,22 +171,19 @@ const Footer = () => {
 
                         <div className="mt-7 flex flex-col gap-4">
 
-                            {[
-                                "Home",
-                                "About Us",
-                                "Services",
-                                "Testimonials",
-                                "Gallery",
-                                "FAQ",
-                                "Contact",
-                            ].map((item, index) => (
+                            {quickLinks.map((item, index) => (
 
                                 <button
                                     key={index}
-                                    className="text-left text-[17px] text-[#C8D3EA] hover:text-white transition-all duration-300"
+                                    onClick={() =>
+                                        scrollToSection(item.id)
+
+
+                                    }
+                                    className="text-left text-[17px] text-[#C8D3EA] hover:text-white transition-all duration-300 cursor-pointer"
                                 >
 
-                                    {item}
+                                    {item.label}
 
                                 </button>
 
