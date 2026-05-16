@@ -1,18 +1,19 @@
 // 📁 src/utils/contactActions.js
 
 const PHONE_NUMBER = "918307318570";
-
 const EMAIL = "joniverma2688@gmail.com";
+
 // ==============================
 // CALL FUNCTION
 // ==============================
 
 export const handleCall = () => {
 
+    if (typeof window === "undefined") return;
+
     window.location.href = `tel:+${PHONE_NUMBER}`;
 
 };
-
 
 // ==============================
 // WHATSAPP FUNCTION
@@ -22,7 +23,10 @@ export const handleWhatsApp = (
     message = "Hello, I need RO service."
 ) => {
 
-    const encodedMessage = encodeURIComponent(message);
+    if (typeof window === "undefined") return;
+
+    const encodedMessage =
+        encodeURIComponent(message);
 
     window.open(
         `https://wa.me/${PHONE_NUMBER}?text=${encodedMessage}`,
@@ -31,16 +35,15 @@ export const handleWhatsApp = (
 
 };
 
-
 // ==============================
 // BOOK NOW FUNCTION
-// Desktop  -> WhatsApp
-// Mobile/Tablet -> Call
 // ==============================
 
 export const handleBookNow = (
     message = "Hello, I want to book RO service."
 ) => {
+
+    if (typeof window === "undefined") return;
 
     const isMobileOrTablet =
         /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(
@@ -49,13 +52,13 @@ export const handleBookNow = (
 
     if (isMobileOrTablet) {
 
-        // MOBILE/TABLET -> CALL
-        window.location.href = `tel:+${PHONE_NUMBER}`;
+        window.location.href =
+            `tel:+${PHONE_NUMBER}`;
 
     } else {
 
-        // DESKTOP -> WHATSAPP
-        const encodedMessage = encodeURIComponent(message);
+        const encodedMessage =
+            encodeURIComponent(message);
 
         window.open(
             `https://wa.me/${PHONE_NUMBER}?text=${encodedMessage}`,
@@ -66,48 +69,6 @@ export const handleBookNow = (
 
 };
 
-
-
-
-
-
-
-// Submit Form  ----
-
-// ========================================
-// SEND FORM TO EMAIL
-// ========================================
-
-// export const handleEmailSubmit = ({
-//     name,
-//     phone,
-//     service,
-//     message,
-// }) => {
-
-//     const subject =
-//         encodeURIComponent(
-//             `New RO Service Booking - ${service}`
-//         );
-
-//     const body =
-//         encodeURIComponent(
-
-//             `Name: ${name}
-
-// Phone: ${phone}
-
-// Service: ${service}
-
-// Message:
-// ${message}`
-
-//         );
-
-//     window.location.href =
-//         `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-
-// };
 // ========================================
 // SEND FORM TO EMAIL
 // ========================================
@@ -119,6 +80,8 @@ export const handleEmailSubmit = ({
     service,
     message,
 }) => {
+
+    if (typeof window === "undefined") return;
 
     const finalName =
         name || "Not Provided";
@@ -143,22 +106,23 @@ export const handleEmailSubmit = ({
     const body =
         encodeURIComponent(
 
-            ` SMART RO SOLUTION -  CUSTOMER ENQUIRY
+            `SMART RO SOLUTION - CUSTOMER ENQUIRY
 
 ━━━━━━━━━━━━━━━━━━━
- Customer Name:
+
+Customer Name:
 ${finalName}
 
- Phone Number:
+Phone Number:
 ${finalPhone}
 
- Alternate Number:
+Alternate Number:
 ${finalAlternatePhone}
 
- Selected Service:
+Selected Service:
 ${finalService}
 
- Customer Message:
+Customer Message:
 ${finalMessage}
 
 ━━━━━━━━━━━━━━━━━━━
@@ -167,18 +131,12 @@ Please contact the customer as soon as possible.`
 
         );
 
-    // OPEN GMAIL DIRECTLY
-
     window.open(
-
         `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}&su=${subject}&body=${body}`,
-
         "_blank"
-
     );
 
 };
-
 
 // ========================================
 // SEND FORM TO WHATSAPP
@@ -191,6 +149,8 @@ export const handleWhatsAppSubmit = ({
     service,
     message,
 }) => {
+
+    if (typeof window === "undefined") return;
 
     const finalName =
         name || "Not Provided";
@@ -209,28 +169,28 @@ export const handleWhatsAppSubmit = ({
 
     const text =
 
-        `SMART RO SOLUTION -  CUSTOMER ENQUIRY
+        `SMART RO SOLUTION - CUSTOMER ENQUIRY
 
 ━━━━━━━━━━━━━━━━━━━
 
- Customer Name:
+Customer Name:
 ${finalName}
 
- Phone Number:
+Phone Number:
 ${finalPhone}
 
- Alternate Number:
+Alternate Number:
 ${finalAlternatePhone}
 
- Selected Service:
+Selected Service:
 ${finalService}
 
- Customer Message:
+Customer Message:
 ${finalMessage}
 
 ━━━━━━━━━━━━━━━━━━━
 
- Please contact the customer soon.`;
+Please contact the customer soon.`;
 
     const encodedMessage =
         encodeURIComponent(text);

@@ -7,6 +7,9 @@ const useScrollToSection = () => {
         offset = 50
     ) => {
 
+        if (typeof window === "undefined")
+            return;
+
         const section =
             document.getElementById(id);
 
@@ -25,7 +28,6 @@ const useScrollToSection = () => {
 
         let start = null;
 
-        // EASING
         const easeInOutQuad = (
             t,
             b,
@@ -65,9 +67,7 @@ const useScrollToSection = () => {
 
             window.scrollTo(0, run);
 
-            if (
-                timeElapsed < duration
-            ) {
+            if (timeElapsed < duration) {
 
                 requestAnimationFrame(
                     animation
