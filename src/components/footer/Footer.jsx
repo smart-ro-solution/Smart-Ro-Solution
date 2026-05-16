@@ -364,7 +364,7 @@ const Footer = () => {
 
                                     <h4 className="mt-1 text-[18px] font-semibold text-white break-all">
 
-                                        smartrosolution@gmail.com
+                                        joniverma2688@gmail.com
 
                                     </h4>
 

@@ -56,7 +56,7 @@ const faqData = [
             "Which areas do you serve?",
 
         answer:
-            "We serve Manesar, New Gurgaon, Sector 79-95, IMT Manesar, Rampura, Hayatpur and nearby locations.",
+            "We provide RO repair, installation and AMC services across all prime locations of Gurugram including  Golf Course Road, Sohna Road, New Gurgaon, Dwarka Expressway, Manesar, IMT Manesar, Sector 79-95 and nearby areas.",
     },
 ];
 
