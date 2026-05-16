@@ -431,14 +431,17 @@ const Footer = () => {
                     {/* DEVELOPER */}
 
                     <p className="text-[16px] text-[#AFC0E0] text-center">
-
                         Designed & Developed By
                         <span className="text-white font-semibold">
-
                             {" "}Amit
-
                         </span>
-
+                        {" "}|
+                        <a
+                            href="tel:+919718451723"
+                            className="text-white font-semibold hover:text-blue-400 transition-colors"
+                        >
+                            {" "}9718451723
+                        </a>
                     </p>
 
                     {/* SCROLL TOP */}
