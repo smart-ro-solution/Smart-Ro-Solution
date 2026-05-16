@@ -4,7 +4,7 @@ const useScrollToSection = () => {
 
     const scrollToSection = (
         id,
-        offset = -50
+        offset = 50
     ) => {
 
         const section =

@@ -2,7 +2,7 @@
 
 const PHONE_NUMBER = "918307318570";
 
-const EMAIL = "smartrosolution@gmail.com";
+const EMAIL = "joniverma2688@gmail.com";
 // ==============================
 // CALL FUNCTION
 // ==============================

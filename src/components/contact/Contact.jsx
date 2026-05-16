@@ -146,7 +146,7 @@ const Contact = () => {
 
                                     <h3 className="text-[22px] font-bold text-white break-all">
 
-                                        smartrosolution@gmail.com
+                                        joniverma2688@gmail.com
 
                                     </h3>
 
