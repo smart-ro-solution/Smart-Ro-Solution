@@ -462,6 +462,116 @@ const Footer = () => {
 
             </div>
 
+
+
+            {/* ========================= */}
+            {/* FLOATING ACTION BUTTONS */}
+            {/* ========================= */}
+
+            {/* MOBILE BUTTONS */}
+
+
+            {/* ========================= */}
+            {/* FLOATING ACTION BUTTONS */}
+            {/* ========================= */}
+
+            {/* MOBILE FLOATING BUTTONS */}
+
+            <div className="fixed bottom-4 left-4 right-4 z-[9999] flex items-center justify-between md:hidden pointer-events-none">
+
+                {/* CALL BUTTON */}
+
+                <a
+                    href="tel:+918307318570"
+                    className="
+            pointer-events-auto
+            w-[58px]
+            h-[58px]
+            rounded-full
+            bg-[#0F52BA]
+            hover:bg-[#2563EB]
+            flex
+            items-center
+            justify-center
+            shadow-xl
+            transition-all
+            duration-300
+            active:scale-95
+        "
+                >
+
+                    <Phone
+                        size={24}
+                        className="text-white"
+                    />
+
+                </a>
+
+                {/* WHATSAPP BUTTON */}
+
+                <a
+                    href="https://wa.me/918307318570"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+            pointer-events-auto
+            w-[58px]
+            h-[58px]
+            rounded-full
+            bg-[#25D366]
+            hover:bg-[#1ebe5d]
+            flex
+            items-center
+            justify-center
+            shadow-xl
+            transition-all
+            duration-300
+            active:scale-95
+        "
+                >
+
+                    <FaWhatsapp
+                        size={28}
+                        className="text-white"
+                    />
+
+                </a>
+
+            </div>
+
+            {/* DESKTOP WHATSAPP BUTTON */}
+
+            <a
+                href="https://wa.me/918307318570"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+        hidden
+        md:flex
+        fixed
+        bottom-6
+        right-6
+        z-[9999]
+        w-[64px]
+        h-[64px]
+        rounded-full
+        bg-[#25D366]
+        hover:bg-[#1ebe5d]
+        items-center
+        justify-center
+        shadow-2xl
+        transition-all
+        duration-300
+        hover:scale-110
+    "
+            >
+
+                <FaWhatsapp
+                    size={32}
+                    className="text-white"
+                />
+
+            </a>
         </footer>
     );
 };
