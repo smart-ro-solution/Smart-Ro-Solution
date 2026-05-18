@@ -320,7 +320,7 @@ const Navbar = () => {
                                     "
                                 >
 
-                                    SMART ARO
+                                    SMART RO
 
                                     <span className="text-[#0F52BA]">
 
