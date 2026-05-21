@@ -239,7 +239,9 @@ const ServiceAreas = () => {
                                 <button
 
                                     onClick={
-                                        handleWhatsApp()
+                                        () => {
+                                            handleWhatsApp()
+                                        }
                                     }
                                     className="
                                         h-[60px]
